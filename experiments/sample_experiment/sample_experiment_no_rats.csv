@@ -1,0 +1,5 @@
+config	experiment	group	sample_str	sample_int	numEpisodes
+c0	experiments/setups/sample_setup.xml	g1	string_1	1	5
+c1	experiments/setups/sample_setup.xml	g1	string_1	5	5
+c2	experiments/setups/sample_setup.xml	g1	string_2	1	5
+c3	experiments/setups/sample_setup.xml	g1	string_2	5	5

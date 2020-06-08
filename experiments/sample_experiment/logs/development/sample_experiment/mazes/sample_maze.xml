@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<world>
+
+
+	<!-- rectangle matching the dimensions of half the lab's soccer field -->
+	<generator class="$(SCS).maze.mazes.Rectangle"
+			    x1="-1.1" y1="-1.5" 
+			    x2="1.1"  y2="1.5" />
+
+
+	<!-- place a feeder in the maze -->
+	<feeder id="1" x="0.1" y="1.2"/>
+	
+
+	<!-- lets add an extra wall to the maze -->
+	<wall x1="-1.1" y1="1"
+	      x2="-0.6" y2="1.5"/>	
+	
+
+	
+		
+	
+</world>
+
