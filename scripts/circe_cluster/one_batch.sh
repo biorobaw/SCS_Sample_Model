@@ -10,7 +10,7 @@ echo 'in script'
 configFile=$1
 baseLogFolder=$2
 
-CMD_ARGS="-cp target/Multiscale-F2019-1.0.0-SNAPSHOT-jar-with-dependencies.jar -Xmx1500m com.github.biorobaw.scs.Main"
+CMD_ARGS="-cp target/SCS_Sample_Model-0.0.1-SNAPSHOT-jar-with-dependencies.jar -Xmx1500m com.github.biorobaw.scs.Main"
 
 
 #module add apps/jre/1.8.0_121.x86 

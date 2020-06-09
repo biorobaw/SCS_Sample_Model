@@ -3,14 +3,17 @@
 
 <experiment>
 
-	<!-- defines variables to be used in the xml file -->
+	<!-- defines global variables -->
+	<!-- define the global variable SEED to define the seed of the random number generator used by scs -->
 	<variables  PROJECT="com.github.biorobaw.scs_models.scs_sample_model" numActions="8"/>
 	
-	<!-- choose SCSDisplay vs NoDisplay, if no disply set sync to false -->
+	<!-- choose a display -->
+	<!-- current options: SCSDisplay or NoDisplay, if no display set sync to false -->
 	<display class="$(SCS).gui.displays.SCSDisplay"
 		window="-2,-2,4,4" syncDisplay="false " />
 		
 	<!-- choose a simulator -->
+	<!-- currently SCSSimulator is the only option -->
 	<simulator
 		class="$(SCS).simulation.scs_simulator.SCSSimulator"
 		simulation_step_ms="30" simulation_speed="15" /> <!-- max speed = 15 -->
@@ -19,7 +22,8 @@
 	<maze class="$(SCS).maze.Maze"
 		  file="experiments/mazes/sample_maze.xml" />
 
-	<!-- create a template for the model -->
+	<!-- create a template node for the model, this does not define the model but a template to be used by another xml node -->
+	<!-- templates can be recursive -->
 	<template id="model" class="$(PROJECT).model.SampleModel"
 		config_param_1="sample param 1" 
 		config_param_2="sample param 2"
@@ -43,7 +47,7 @@
 	<!-- create groups of rats (subjects) -->
 	<!-- for each group define the trials that the group will have to perform
 		 as well as the subjects that compose the group -->
-	<!-- for each subject define the model that controls the subject as well as the robot used -->
+	<!-- for each subject define the model that controls the subject as well as the robot it uses -->
 	<groups>
 		<g1 trials="sample_trial"> 
 			<sub_1 template="model" >
@@ -53,7 +57,12 @@
 	</groups>
 	
 	
-	<!-- define the trials -->
+	<!-- optionally define experiment tasks -->
+	<!-- <experimentTasks></experimentTasks> -->
+	
+	<!-- define the trials of the experiment, a trial defines a given task for the robots to complete-->
+	<!-- the trial defines the tasks that the simulator must perform -->
+	<!-- condition tasks signal when an episode has ended-->
 	<trial id="sample_trial" numEpisodes="$(numEpisodes)"> <!-- numEpisodes will be a configuration parameter -->
 		<episodeTasks>
 			<t1 class="$(SCS).tasks.episode.feeders.SetFoodAllFeeders" /> <!-- at each episode put food on each feeder -->
